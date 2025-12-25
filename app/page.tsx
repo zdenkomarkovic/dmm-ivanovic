@@ -8,17 +8,17 @@ import {
   CheckCircle2Icon,
   PhoneIcon,
   MailIcon,
-  MapPinIcon,
   Sofa,
   DoorOpen,
   Tv,
   Baby,
   ChefHat,
+  LucideIcon,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
-const iconMap: { [key: string]: any } = {
+const iconMap: { [key: string]: LucideIcon } = {
   chef: ChefHat,
   cabinet: DoorOpen,
   sofa: Sofa,
