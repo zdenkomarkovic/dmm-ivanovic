@@ -4,6 +4,7 @@ import Image from "next/image";
 import Logo from "../public/android-chrome-192x192.png";
 import Link from "next/link";
 import { ChevronDownIcon, MenuIcon, PhoneIcon } from "lucide-react";
+import { companyInfo } from "@/constants/index";
 
 import {
   Sheet,
@@ -169,16 +170,16 @@ export default function Header() {
           />
         </Link>
         <DesktopNav />
-        <Link href="tel:+3816">
+        <Link href={`tel:${companyInfo.phoneFormatted}`}>
           <motion.button
             whileHover={{
               color: "hsl(var(--foreground))",
               backgroundColor: "hsl(var(--primary))",
             }}
-            className=" items-center justify-center rounded-full text-primary border-primary border-2 text-sm md:text-lg py-1 px-2 md:py-2 md:px-4 transition-colors flex"
+            className=" items-center justify-center rounded-full text-primary border-primary border-2 text-sm md:text-lg py-1 px-2 md:py-2 md:px-4 transition-colors flex gap-2"
           >
-            <PhoneIcon />
-            <p className="">+38160 000 000</p>
+            <PhoneIcon className="w-5 h-5" />
+            <p className="">{companyInfo.phone}</p>
           </motion.button>
         </Link>
         <MobileMenu />
