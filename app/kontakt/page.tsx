@@ -151,7 +151,7 @@ export default function KontaktPage() {
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19052.112525529024!2d20.511023444215724!3d44.77849195501722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a774de195f7f3%3A0x7c5446ee6d6c021b!2sNine%20Kirsanove%2011%2C%20Beograd!5e0!3m2!1ssr!2srs!4v1766629699728!5m2!1ssr!2srs"
                 width="600"
                 height="450"
-                allowFullScreen=""
+                allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="w-full h-96"
