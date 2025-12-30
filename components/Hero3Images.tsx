@@ -21,7 +21,7 @@ const Hero3Images = () => {
       {/* Mobile layout - text below video */}
       <div className="relative flex md:hidden flex-col gap-6 w-full items-center justify-start text-white z-[2] text-center pt-[calc(60vh+2rem)] pb-8 px-4">
         <h1 className="text-primary text-3xl font-bold max-w-[900px] leading-[1.2]">
-          DMM Ivanovic - Nameštaj po Meri
+          DMM Ivanović - Nameštaj po Meri
         </h1>
         <h2 className="text-background font-medium text-lg max-w-[800px]">
           Preko 20 godina iskustva u izradi kvalitetnog nameštaja
