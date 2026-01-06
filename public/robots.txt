@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://dmmivanovic.rs
+
+# Sitemaps
+Sitemap: https://dmmivanovic.rs/sitemap.xml

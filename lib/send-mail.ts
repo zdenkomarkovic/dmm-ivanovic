@@ -12,6 +12,17 @@ const mailjet = Mailjet.apiConnect(
   MAILJET_SECRET_KEY || ""
 );
 
+interface MailjetResponse {
+  Messages: Array<{
+    Status: string;
+    To: Array<{
+      Email: string;
+      MessageID?: string;
+      MessageUUID?: string;
+    }>;
+  }>;
+}
+
 export async function sendMail({
   email,
   sendTo,
@@ -49,15 +60,16 @@ export async function sendMail({
     });
 
     // Mailjet vraća Messages array sa Status property
-    const isSuccess = result.body?.Messages?.[0]?.Status === "success";
-    const messageId = result.body?.Messages?.[0]?.To?.[0]?.MessageID ||
-                     result.body?.Messages?.[0]?.To?.[0]?.MessageUUID ||
+    const body = result.body as unknown as MailjetResponse;
+    const isSuccess = body?.Messages?.[0]?.Status === "success";
+    const messageId = body?.Messages?.[0]?.To?.[0]?.MessageID ||
+                     body?.Messages?.[0]?.To?.[0]?.MessageUUID ||
                      (isSuccess ? "success" : null);
 
     return {
       messageId: messageId,
       success: isSuccess,
-      status: result.body?.Messages?.[0]?.Status,
+      status: body?.Messages?.[0]?.Status,
     };
   } catch (error) {
     console.error("Failed to send email:", error);
