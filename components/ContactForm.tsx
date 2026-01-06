@@ -35,19 +35,25 @@ export default function ContactForm() {
   });
   const isLoading = form.formState.isSubmitting;
   const onSubmit = async (values: z.infer<typeof contactFormSchema>) => {
-    const mailText = `Ime: ${values.name}\n Telefon: ${values.phone}\n Email: ${values.email}\n Poruka: ${values.message}`;
-    const response = await sendMail({
-      email: values.email,
-      subject: "New Contact Us Form",
-      text: mailText,
-    });
+    try {
+      const mailText = `Ime: ${values.name}\n Telefon: ${values.phone}\n Email: ${values.email}\n Poruka: ${values.message}`;
 
-    if (response?.messageId) {
-      toast.success("Application Submitted Successfully.");
-    } else {
-      toast.error("Failed To send application.");
+      const response = await sendMail({
+        email: values.email,
+        subject: "Nova poruka sa kontakt forme",
+        text: mailText,
+      });
+
+      if (response?.success === true || response?.status === "success") {
+        toast.success("Poruka je uspešno poslata!");
+        form.reset();
+      } else {
+        toast.error("Greška pri slanju poruke. Molimo pokušajte ponovo.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("Greška pri slanju poruke. Molimo pokušajte ponovo.");
     }
-    form.reset();
   };
   return (
     <div className="">
