@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "images:optimize": "node scripts/convert-images.js",
+    "images:convert": "node scripts/convert-images.js",
+    "images:optimize": "node scripts/optimize-images.js",
     "postbuild": "next-sitemap",
     "lint": "next lint"
   },
